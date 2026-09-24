@@ -1,10 +1,10 @@
-name: Run Stock Data Script
+name: Run Stock Data Script & Save to Folder
 
 on:
   schedule:
     # 台灣時間 每週二、四、六 早上 10:00 (對應 UTC 凌晨 2 點)
     - cron: '0 2 * * 2,4,6'
-  workflow_dispatch: # 讓你可以隨時手動點擊按鈕測試執行
+  workflow_dispatch: # 支援隨時手動點擊按鈕執行
 
 jobs:
   run-python:
@@ -26,8 +26,10 @@ jobs:
         run: |
           python main.py
 
-      - name: Upload generated Excel files
-        uses: actions/upload-artifact@v4
-        with:
-          name: stock-data-output
-          path: '*.xlsx'
+      - name: Commit and push generated Excel files to folder
+        run: |
+          git config --global user.name "GitHub Actions Bot"
+          git config --global user.email "actions@github.com"
+          git add StockShateWeek/*.xlsx
+          git commit -m "Auto-update stock data to StockShateWeek folder [skip ci]" || echo "No changes to commit"
+          git push
