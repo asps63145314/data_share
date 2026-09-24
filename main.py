@@ -125,6 +125,10 @@ if __name__ == '__main__':
 
 
 
-    wb1_Stock.save('D:/StockData/股權分散表/股權分散表_' + Data_date + '.xlsx')
-    wb1_ETF.save('D:/StockData/股權分散表/ETF股權分散表_' + Data_date + '.xlsx')
+    #wb1_Stock.save('D:/StockData/股權分散表/股權分散表_' + Data_date + '.xlsx')
+    #wb1_ETF.save('D:/StockData/股權分散表/ETF股權分散表_' + Data_date + '.xlsx')
+    wb1_Stock.save('股權分散表_' + Data_date + '.xlsx')
+    wb1_ETF.save('ETF股權分散表_' + Data_date + '.xlsx')
+
+    
     ReadDoc_1 = open("./Sort_Range.txt", "r")
