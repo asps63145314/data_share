@@ -127,8 +127,11 @@ if __name__ == '__main__':
 
     #wb1_Stock.save('D:/StockData/股權分散表/股權分散表_' + Data_date + '.xlsx')
     #wb1_ETF.save('D:/StockData/股權分散表/ETF股權分散表_' + Data_date + '.xlsx')
-    wb1_Stock.save('股權分散表_' + Data_date + '.xlsx')
-    wb1_ETF.save('ETF股權分散表_' + Data_date + '.xlsx')
+   # 確保 StockShateWeek 資料夾存在（如果沒有會自動建立）
+    os.makedirs('StockShateWeek', exist_ok=True)
 
+    # 儲存到 StockShateWeek 資料夾內
+    wb1_Stock.save('StockShateWeek/股權分散表_' + Data_date + '.xlsx')
+    wb1_ETF.save('StockShateWeek/ETF股權分散表_' + Data_date + '.xlsx')
     
     #ReadDoc_1 = open("./Sort_Range.txt", "r")
