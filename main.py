@@ -131,4 +131,4 @@ if __name__ == '__main__':
     wb1_ETF.save('ETF股權分散表_' + Data_date + '.xlsx')
 
     
-    ReadDoc_1 = open("./Sort_Range.txt", "r")
+    #ReadDoc_1 = open("./Sort_Range.txt", "r")
